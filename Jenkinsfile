@@ -12,7 +12,7 @@ pipeline {
 
         stage('Build docker image') {
             steps {  
-                bat 'docker build -t pvaranasi/nodeapp:$BUILD_NUMBER .'
+                bat 'docker build -t pvaranasi/nodeapp:1 .'
             }
         }
         stage('login to dockerhub') {
@@ -22,7 +22,7 @@ pipeline {
         }
         stage('push image') {
             steps{
-                bat 'docker push pvaranasi/nodeapp:$BUILD_NUMBER'
+                bat 'docker push pvaranasi/nodeapp:1'
             }
         }
 }
