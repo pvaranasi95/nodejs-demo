@@ -1,5 +1,7 @@
 pipeline {
-    agent any 
+    agent {
+        node { label 'Windows1' }
+    }
     stages { 
         stage('SCM Checkout') {
             steps{
@@ -9,20 +11,15 @@ pipeline {
 
         stage('Build docker image') {
             steps {  
-                sh 'docker build -t pvaranasi/nodeapp:1 .'
+            bat 'docker build -t pvaranasi/nodeapp:1 .'
             }
         }
         
         stage('push image') {
             steps{
-                sh 'docker push pvaranasi/nodeapp:1'
+                bat 'docker push pvaranasi/nodeapp:1'
             }
         }
 }
-post {
-        always {
-            sh 'docker logout'
-        }
-    }
 }
 
