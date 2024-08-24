@@ -9,17 +9,17 @@ pipeline {
             }
         }
 
-        stage('Build docker image') {
-            steps {  
-            bat 'docker build -t pvaranasi/nodeapp:1 .'
-            }
-        }
+        // stage('Build docker image') {
+        //     steps {  
+        //     bat 'docker build -t pvaranasi/nodeapp:1 .'
+        //     }
+        // }
         
-        stage('push image') {
-            steps{
-                bat 'docker push pvaranasi/nodeapp:1'
-            }
-        }
+        // stage('push image') {
+        //     steps{
+        //         bat 'docker push pvaranasi/nodeapp:1'
+        //     }
+        // }
         stage('Container') {
             steps{
                 bat 'docker run -d -p 3000:3000 --name nodejs1 pvaranasi/nodeapp'
