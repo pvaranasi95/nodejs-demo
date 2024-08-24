@@ -22,7 +22,7 @@ pipeline {
         // }
         stage('Container') {
             steps{
-                bat 'docker run -d -p 3000:3000 --name nodejs1 pvaranasi/nodeapp'
+                bat 'docker run -d -p 3000:3000 --name nodejs1 pvaranasi/nodeapp:1'
             }
         }
 }
