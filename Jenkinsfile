@@ -20,6 +20,11 @@ pipeline {
                 bat 'docker push pvaranasi/nodeapp:1'
             }
         }
+        stage('Container') {
+            steps{
+                bat 'docker run -d -p 3000:3000 --name nodejs1 pvaranasi/nodeapp'
+            }
+        }
 }
 }
 
